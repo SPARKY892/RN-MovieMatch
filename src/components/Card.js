@@ -6,11 +6,21 @@ const Card = ({ card }) => {
 		<View activeOpacity={1} style={styles.card}>
 			<Image
 				style={styles.image}
-				source={card.photo}
+				source={
+					card
+						? {
+								uri:
+									"https://image.tmdb.org/t/p/original" +
+									card.poster_path,
+						  }
+						: null
+				}
 				resizeMode="cover"
 			/>
 			<View style={styles.photoDescriptionContainer}>
-				<Text style={styles.text}>{`${card.name}, ${card.age}`}</Text>
+				<Text style={styles.text}>{`${card ? card.title : ""}, ${
+					card ? card.vote_average : ""
+				}`}</Text>
 			</View>
 		</View>
 	);

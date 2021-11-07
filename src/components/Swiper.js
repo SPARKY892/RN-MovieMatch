@@ -1,15 +1,17 @@
 import React, { useRef } from "react";
 import { View, StyleSheet } from "react-native";
 import Swiper from "react-native-deck-swiper";
-import { photoCards } from "../../assets/data.js";
 import Card from "./Card";
 import OverlayLabel from "./OverlayLabel";
+import useResults from "../hooks/useResults.js";
 
 const CustomSwiper = () => {
 	const useSwiper = useRef(null).current;
-	const handleOnSwipedLeft = () => useSwiper.swipeLeft();
-	const handleOnSwipedTop = () => useSwiper.swipeTop();
-	const handleOnSwipedRight = () => useSwiper.swipeRight();
+	const [searchApi, results, errorMessage] = useResults();
+
+	if (results) {
+		console.log(results);
+	}
 
 	return (
 		<View style={styles.container}>
@@ -18,7 +20,7 @@ const CustomSwiper = () => {
 					ref={useSwiper}
 					animateCardOpacity
 					containerStyle={styles.container}
-					cards={photoCards}
+					cards={results ? results : []}
 					renderCard={(card) => <Card card={card} />}
 					cardIndex={0}
 					backgroundColor="white"
@@ -26,6 +28,14 @@ const CustomSwiper = () => {
 					infinite
 					showSecondCard
 					animateOverlayLabelsOpacity
+					disableBottomSwipe={true}
+					disableTopSwipe={true}
+					onSwipedLeft={(index) =>
+						console.log("swiped left on:" + index)
+					}
+					onSwipedRight={(index) =>
+						console.log("swiped right on:" + index)
+					}
 					overlayLabels={{
 						left: {
 							title: "NOPE",
@@ -62,7 +72,7 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 	},
 	swiperContainer: {
-		height: "80%",
+		height: "85%",
 	},
 	overlayWrapper: {
 		flexDirection: "column",
