@@ -2,24 +2,19 @@ import * as React from "react";
 import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CustomSwiper from "./src/components/Swiper";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import SwipeScreen from "./src/screens/SwipeScreen";
+import SettingsScreen from "./src/screens/SettingsScreen";
 
-function HomeScreen() {
-	return <CustomSwiper />;
-}
-
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function App() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Home">
-				<Stack.Screen
-					name="Home"
-					component={HomeScreen}
-					options={{ title: "Home" }}
-				/>
-			</Stack.Navigator>
+			<Tab.Navigator>
+				<Tab.Screen name="Swipe" component={SwipeScreen} />
+				<Tab.Screen name="Settings" component={SettingsScreen} />
+			</Tab.Navigator>
 		</NavigationContainer>
 	);
 }
