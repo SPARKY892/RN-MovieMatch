@@ -17,7 +17,7 @@ const SwipeScreen = ({ navigation }) => {
 		const result = results[index];
 		console.log(result + "This is the result");
 		console.log(result.title);
-		navigation.navigate("Settings", { result });
+		navigation.navigate("Details", { result });
 	};
 
 	return (
@@ -34,11 +34,11 @@ const SwipeScreen = ({ navigation }) => {
 						cardIndex={0}
 						backgroundColor="white"
 						stackSize={2}
-						infinite
 						showSecondCard
 						animateOverlayLabelsOpacity
 						disableBottomSwipe={true}
 						disableTopSwipe={true}
+						infinite={false}
 						onSwipedLeft={(index) =>
 							console.log("swiped left on:" + index)
 						}
