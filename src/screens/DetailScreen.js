@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 const DetailScreen = ({ route }) => {
 	const { result } = route.params;
@@ -7,24 +7,65 @@ const DetailScreen = ({ route }) => {
 
 	return (
 		<View style={styles.container}>
-			<Text>Movie Details for: {result.title}</Text>
+			<Image
+				style={styles.banner}
+				source={
+					result
+						? {
+								uri:
+									"https://image.tmdb.org/t/p/original" +
+									result.backdrop_path,
+						  }
+						: null
+				}
+			/>
+			<View style={styles.posterShadow}>
+				<Image
+					style={styles.poster}
+					source={
+						result
+							? {
+									uri:
+										"https://image.tmdb.org/t/p/original" +
+										result.poster_path,
+							}
+							: null
+					}
+				/>
+			</View>
+			<Text style={styles.title}>{result.title}</Text>
+			<Text style={styles.overview}>{result.overview}</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	container: {
-		marginLeft: 15,
 	},
-	image: {
-		width: 250,
-		height: 120,
-		borderRadius: 4,
-		marginBottom: 5,
+	banner: {
+		width: '100%',
+		height: 250,
+		position: "absolute"
 	},
-	name: {
+	poster: {
+		width: 100,
+		height: 150,
+		resizeMode: "stretch",
+	},
+	posterShadow: {
+		width: 100,
+		height: 150,
+		marginTop: 100,
+		marginLeft: 5, 
+	},
+	title: {
 		fontWeight: "bold",
+		marginLeft: 5
 	},
+	overview: {
+		marginLeft: 5,
+		marginRight: 5
+	}
 });
 
 export default DetailScreen;
