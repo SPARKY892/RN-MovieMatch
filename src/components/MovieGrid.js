@@ -15,7 +15,7 @@ const MovieGrid = ({ results, openDetail }) => {
 		<View>
 			<FlatList
 				data={results}
-				keyExtractor={(item) => item.id}
+				keyExtractor={(result) => result.id}
 				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity
