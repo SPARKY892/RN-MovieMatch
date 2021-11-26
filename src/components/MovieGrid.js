@@ -15,16 +15,16 @@ const MovieGrid = ({ results, openDetail }) => {
 		<View>
 			<FlatList
 				data={results}
-				keyExtractor={(result) => result.id}
-				renderItem={({ result }) => {
+				keyExtractor={(item) => item.id}
+				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity
 							onPress={() =>
 								//navigation.navigate("Details", { result })
-								console.log(result)
+								console.log(item)
 							}
 						>
-							<Text>{console.log(result)}</Text>
+							<Text>{console.log(item)}Output</Text>
 						</TouchableOpacity>
 					);
 				}}
