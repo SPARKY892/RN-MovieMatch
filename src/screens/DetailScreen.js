@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 const DetailScreen = ({ route }) => {
 	const { result } = route.params;
-	console.log(result);
 
 	return (
 		<View style={styles.container}>
@@ -28,7 +27,7 @@ const DetailScreen = ({ route }) => {
 									uri:
 										"https://image.tmdb.org/t/p/original" +
 										result.poster_path,
-							}
+							  }
 							: null
 					}
 				/>
@@ -40,12 +39,11 @@ const DetailScreen = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-	container: {
-	},
+	container: {},
 	banner: {
-		width: '100%',
+		width: "100%",
 		height: 250,
-		position: "absolute"
+		position: "absolute",
 	},
 	poster: {
 		width: 100,
@@ -56,16 +54,16 @@ const styles = StyleSheet.create({
 		width: 100,
 		height: 150,
 		marginTop: 100,
-		marginLeft: 5, 
+		marginLeft: 5,
 	},
 	title: {
 		fontWeight: "bold",
-		marginLeft: 5
+		marginLeft: 5,
 	},
 	overview: {
 		marginLeft: 5,
-		marginRight: 5
-	}
+		marginRight: 5,
+	},
 });
 
 export default DetailScreen;

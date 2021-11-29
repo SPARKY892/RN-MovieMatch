@@ -10,14 +10,14 @@ const SwipeScreen = ({ navigation }) => {
 	const useSwiper = useRef(null).current;
 	const [searchApi, results, errorMessage] = useResults();
 
-	if (results) {
-		console.log(results);
-	}
+	// if (results) {
+	// 	console.log(results);
+	// }
 
 	const openDetail = (id) => {
 		const result = results.find(id);
-		console.log(result + "This is the result");
-		console.log(result.title);
+		//console.log(result + "This is the result");
+
 		navigation.navigate("Details", { result });
 	};
 
