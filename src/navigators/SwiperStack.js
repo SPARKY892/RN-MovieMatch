@@ -7,8 +7,8 @@ const Stack = createNativeStackNavigator();
 
 const SwiperStack = () => {
 	return (
-		<Stack.Navigator initialRouteName="Swiper">
-			<Stack.Screen name="Swiper" component={SwipeScreen} />
+		<Stack.Navigator initialRouteName="Movies">
+			<Stack.Screen name="Movies" component={SwipeScreen} />
 			<Stack.Screen name="Details" component={DetailScreen} />
 		</Stack.Navigator>
 	);

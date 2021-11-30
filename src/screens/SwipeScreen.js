@@ -23,7 +23,7 @@ const SwipeScreen = ({ navigation }) => {
 
 	return (
 		<React.Fragment>
-			<MovieGrid results={results} onPress={openDetail} />
+			<MovieGrid results={results} />
 		</React.Fragment>
 	);
 
